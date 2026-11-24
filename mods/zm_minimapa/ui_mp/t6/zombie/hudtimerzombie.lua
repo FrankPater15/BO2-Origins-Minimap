@@ -41,7 +41,7 @@ MM.Under = {
 	{ -2152.3, 4118.5, 2 },
 	{ 3707.1, 6818.7, 2 },
 	{ 1929.8, 6276.8, 2 },
-	{ -3333.9, 3391.0, 2 },
+	{ -3333.9, 3386.1, 2 },
 }
 MM.UnderWorld = 10000.0
 MM.BigSize = 640
@@ -92,7 +92,7 @@ MM.BigCaves = {
 	{ 14, 919, 1451, 3840, 4392 },
 	{ 15, 148, 602, 3376, 3581 },
 	{ 16, 1710, 2159, 2790, 3083 },
-	{ 17, -526, 538, -403, 505 },
+	{ 17, -531, 543, -418, 510 },
 }
 -- x, y, name, colour, place it points to
 MM.BigLabels = {
@@ -286,7 +286,7 @@ local function dressGen(e, f, gens, packet)
 	local o = gens and gens[f[3]]
 	local st = o and o.st or 0
 	local blink = (packet or 0) % 10 < 5
-	local key = st .. (st == 1 and o.pr or "") .. ((st == 1 or st == 4) and blink and "b" or "")
+	local key = f[3] .. st .. (st == 1 and o.pr or "") .. ((st == 1 or st == 4) and blink and "b" or "")
 	if e.genKey == key then
 		return st
 	end
@@ -487,6 +487,16 @@ MM.Update = function(self, event)
 	for i = zi + 1, MM.MaxZombies do
 		show(self.zombies[i], 0)
 	end
+	-- generator in danger, drawn over the zombies
+	local alertFix = not crazy and self.alert and MM.GenFix and MM.GenFix[self.alert]
+	if alertFix then
+		dressGen(self.alertGen, alertFix, self.gens, self.packet)
+		local ex, ey = project(alertFix[1], alertFix[2])
+		place(self.alertGen, math.max(-half + 11, math.min(half - 11, ex)), math.max(-half + 11, math.min(half - 11, ey)), 7, 0)
+		show(self.alertGen, 1)
+	else
+		show(self.alertGen, 0)
+	end
 	for i = ai + 1, MM.MaxAllies do
 		show(self.allies[i], 0)
 	end
@@ -634,6 +644,13 @@ MM.UpdateBig = function(self)
 	end
 	for i = zi + 1, MM.MaxZombies do
 		show(big.zombies[i], 0)
+	end
+	local alertFix = not crazy and self.alert and MM.GenFix and MM.GenFix[self.alert]
+	if alertFix then
+		dressGen(big.alertGen, alertFix, self.gens, self.packet)
+		put(big.alertGen, alertFix[1], alertFix[2], 7)
+	else
+		show(big.alertGen, 0)
 	end
 	for i = ai + 1, MM.MaxAllies do
 		show(big.allies[i], 0)
@@ -834,6 +851,12 @@ MM.Attach = function(parent)
 		end
 		return e
 	end
+	MM.GenFix = {}
+	for i = 1, #MM.Fixed do
+		if string.sub(MM.Fixed[i][3], 1, 1) == "G" then
+			MM.GenFix[MM.Fixed[i][3]] = MM.Fixed[i]
+		end
+	end
 	root.fixed = {}
 	for i = 1, #MM.Fixed do
 		root.fixed[i] = fixedIcon(clip, MM.Fixed[i][3], 1)
@@ -871,6 +894,7 @@ MM.Attach = function(parent)
 		root.allies[i] = group(clip, 6, 0)
 		root.allies[i].arrow = image(root.allies[i], MM.ArrowMat, 11, 0.25, 0.95, 0.4, 1)
 	end
+	root.alertGen = fixedIcon(clip, "G1", 1)
 	-- you: smaller than before (was about 20 tall)
 	image(clip, MM.ArrowMat, 13, 1, 1, 1, 1)
 	local h = MM.Size / 2
@@ -959,7 +983,7 @@ MM.Attach = function(parent)
 	for i = 1, #MM.BigLabels do
 		local d = MM.BigLabels[i]
 		local e = group(big.labels, 80, 1)
-		local w = string.len(d[3]) * 2.7 + 4
+		local w = string.len(d[3]) * 2.2 + 4
 		if d[7] then
 			-- pointer: a thin bar turned towards the place, with a dot at its end
 			local mk = MM.BigSize / MM.World
@@ -974,8 +998,8 @@ MM.Attach = function(parent)
 		end
 		local lx = (d[1] - MM.CenterX) * MM.BigSize / MM.World
 		place(e, lx, (MM.CenterY - d[2]) * MM.BigSize / MM.World, 80, 0)
-		bar(e, -w, -7, w, 7, 0.02, 0.03, 0.04, 0.75)
-		local t = text(e, 11, 74)
+		bar(e, -w, -7.5, w, 7.5, 0.02, 0.03, 0.04, 0.75)
+		local t = text(e, 13, 73)
 		t:setText(d[3])
 		t:setRGB(d[4] or 1, d[5] or 0.95, d[6] or 0.8)
 	end
@@ -1001,6 +1025,7 @@ MM.Attach = function(parent)
 	for i = 1, MM.MaxAllies do
 		big.allies[i] = image(view, MM.ArrowMat, 14, 1, 1, 1, 0)
 	end
+	big.alertGen = fixedIcon(view, "G1", 0.95)
 	big.me = image(view, MM.ArrowMat, 16, 1, 1, 1, 0)
 	local function side(l, x, y)
 		local e = group(view, 10, 1)

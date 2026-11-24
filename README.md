@@ -2,7 +2,7 @@
 
 Minimapa para **Origins** (Black Ops 2 Zombies) en Plutonium T6. Te sigue, gira contigo y muestra el relieve del mapa.
 
-> **En desarrollo.** Probado en solitario. Falta comprobar el cooperativo.
+> **Primera versión estable**, probada en solitario. El cooperativo está sin comprobar.
 
 ![Mapa](capturas/mapa.png)
 

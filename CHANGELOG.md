@@ -2,6 +2,23 @@
 
 La numeración sigue las versiones internas de desarrollo: `0.18.0` es la versión 18.
 
+## 0.25.0 (2026-11-24)
+
+Primera versión estable.
+
+- El generador en peligro se dibuja por encima de los zombis
+- Nombres del mapa grande más legibles y con el fondo ajustado
+- Piso alto de la cripta sin puntas
+- El centro del laboratorio también se ilumina
+
+### Sin comprobar
+
+- Cooperativo
+
+### Limitaciones
+
+- El piso alto de la cripta es aproximado
+
 ## 0.24.0-beta (2026-11-24)
 
 Probada con un recorrido automático por 22 puntos del mapa.

@@ -7,7 +7,7 @@ def inpoly(a,b):
         (x1,y1),(x2,y2)=POLY[i],POLY[j]
         r^=((y1>b)!=(y2>b))&(a<(x2-x1)*(b-y1)/(y2-y1+1e-9)+x1);j=i
     return r
-nave=inpoly(wx,wy)&(wz>240)&(wz<430);cov=cov|nave
+nave=inpoly(wx,wy)&(wz>240)&(wz<430);cov=cov|nave|((wx>2430)&(wx<2990)&(wy>4990)&(wy<5490)&(wz<-150))
 """)
 V("part[rest]=new\n","part[rest]=new\npart[nave]=6\n")
 V("look={}\n","""fix={}
@@ -24,5 +24,5 @@ V("cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(13,13)));mm=(cv2.GaussianBlur(mm
     n_h,l_h,s_h,_=cv2.connectedComponentsWithStats(1-mm);hole=np.zeros_like(mm)
     for q_ in range(1,n_h):
         if 300<s_h[q_,4]<200000:hole|=(l_h==q_).astype(np.uint8)
-    mm=cv2.morphologyEx(mm,cv2.MORPH_CLOSE,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(75,75)));mm[hole>0]=0
-    mm=(cv2.GaussianBlur(mm.astype(np.float32),(0,0),7)>.5)""")
+    mm=cv2.morphologyEx(mm,cv2.MORPH_CLOSE,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(75,75)));hull=cv2.convexHull(np.argwhere(mm>0)[:,::-1].astype(np.int32));cv2.fillConvexPoly(mm,hull,1);mm[hole>0]=0
+    mm=(cv2.GaussianBlur(mm.astype(np.float32),(0,0),9)>.5)""")
