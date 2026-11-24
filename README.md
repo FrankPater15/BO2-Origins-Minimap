@@ -2,7 +2,7 @@
 
 Minimapa para **Origins** (Black Ops 2 Zombies) en Plutonium T6. Te sigue, gira contigo y muestra el relieve del mapa.
 
-> **En desarrollo.** Las últimas funciones (mapa grande, leyenda, relieve y estructuras iluminadas) aún no están probadas en el juego.
+> **En desarrollo.** Probado en solitario. Falta comprobar el cooperativo, Crazy Place y el ataque a generadores.
 
 ![Mapa](capturas/mapa.png)
 
@@ -10,10 +10,13 @@ Minimapa para **Origins** (Black Ops 2 Zombies) en Plutonium T6. Te sigue, gira 
 
 - Minimapa con zoom, giro y puntos cardinales
 - Zombis (con marca si están arriba o abajo), Panzer Soldat, compañeros y pies de los robots gigantes
-- Generadores G1–G6, ventajas, Wunderfizz, caja y Pack-a-Punch
+- Generadores G1–G6 con su estado: libre, capturando, tuyo, en peligro o atacado
+- Ventajas, Wunderfizz, caja y Pack-a-Punch
 - Ilumina la cueva o estructura en la que estás, la cripta y Crazy Place
 - Zombis restantes, vida y nombre del lugar
 - Mapa grande con leyenda (tecla **M**)
+
+![Botellas](capturas/botellas.png)
 
 ![Estructuras](capturas/estructuras.png)
 
@@ -40,7 +43,7 @@ Minimapa para **Origins** (Black Ops 2 Zombies) en Plutonium T6. Te sigue, gira 
 ## Limitaciones
 
 - En cooperativo sólo lo ve el anfitrión.
-- Reemplaza estas imágenes del juego mientras estén instaladas: `icon_twitter`, `icon_facebook`, `hud_zombierank_5`, y `hud_zombierank_3_ded` a `hud_zombierank_5_ded`.
+- Reemplaza, mientras estén instaladas, imágenes del juego que no se usan en partida: las 17 de la carpeta `images` de este repositorio. Pueden verse cambiadas en el menú o el lobby.
 - Plutonium usa controles y algunas estadísticas aparte con un mod cargado.
 
 ## Desinstalar
@@ -49,4 +52,4 @@ Borra `mods\zm_minimapa` y, de `images`, los archivos que tienen el mismo nombre
 
 ## Aviso
 
-Proyecto de fans, gratuito y no oficial, sin relación con Activision, Treyarch ni Plutonium. Call of Duty y sus contenidos pertenecen a sus dueños. El trazado se basa en la geometría de Origins; los iconos de las ventajas los carga el juego y no se incluyen aquí.
+Proyecto de fans, gratuito y no oficial, sin relación con Activision, Treyarch ni Plutonium. Call of Duty y sus contenidos pertenecen a sus dueños. El trazado se basa en la geometría de Origins; los iconos son dibujos propios.

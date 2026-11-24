@@ -2,6 +2,34 @@
 
 La numeración sigue las versiones internas de desarrollo: `0.18.0` es la versión 18.
 
+## 0.23.0-beta (2026-11-24)
+
+Probada en el juego con un video de 6 minutos.
+
+- **0.23** Cripta en dos pisos, laboratorio y G1 separados, iglesia por pisos, cuevas limpias; nombres con línea a su lugar en el mapa grande
+- **0.22** Una botella propia por ventaja
+- **0.21** Estado de los generadores, aviso de ataque y pisadas según la dirección del robot; botella y caja nuevas
+- **0.20** Iconos ilustrados; zombi como punto rojo y Panzer como rombo naranja
+
+### Visto en el juego
+
+- Mapa grande con leyenda
+- Giro: en un video de la 0.19 el error bajó de 2,14° a 0,22°
+- Captura de un generador (porcentaje y verde)
+- Dirección de los pies de robot
+- Cripta, laboratorio, G1 y búnker
+
+### Sin comprobar
+
+- Ataque a un generador y Panzer
+- Crazy Place y cooperativo
+- Iglesia por pisos
+
+### Fallos conocidos
+
+- En el mapa grande, las líneas pasan por encima de los nombres (corregido, saldrá en la siguiente)
+- El piso alto de la cripta es aproximado y la planta alta de la iglesia está incompleta
+
 ## 0.19.0-beta (2026-11-24)
 
 Corregido a partir de un video de la 0.18. Pendiente de probar en el juego.

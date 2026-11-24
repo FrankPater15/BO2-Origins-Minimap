@@ -25,31 +25,43 @@ MM.CrazyRange = 900
 MM.AtlasB = "menu_lobby_icon_facebook"
 -- x, y, atlas
 MM.Under = {
-	{ 3326.2, -3308.2, 1 },
-	{ -3124.0, -3537.7, 1 },
+	{ 3340.9, -3352.2, 1 },
+	{ -3128.8, -3537.7, 1 },
 	{ -448.2, -2292.6, 1 },
 	{ 4742.3, -2058.2, 1 },
 	{ 2857.5, 4367.6, 1 },
-	{ -2826.1, -2600.2, 1 },
-	{ 5772.5, 8244.5, 1 },
-	{ -731.4, 6042.4, 1 },
-	{ 5357.5, 393.0, 2 },
-	{ -2577.1, -3337.5, 2 },
-	{ -3558.5, 983.8, 2 },
-	{ 4517.6, 4118.5, 2 },
-	{ 372.1, 3483.8, 2 },
-	{ -2752.9, 1911.5, 2 },
-	{ 5264.7, 6276.8, 2 },
+	{ -2821.2, -2683.2, 1 },
+	{ 3838.9, 734.8, 1 },
+	{ 2725.7, 8601.0, 1 },
+	{ 5606.5, 1350.0, 2 },
+	{ -731.4, -627.5, 2 },
+	{ -1312.4, 393.0, 2 },
+	{ 757.9, -2.5, 2 },
+	{ -223.6, 4318.7, 2 },
+	{ -2152.3, 4118.5, 2 },
+	{ 3707.1, 6818.7, 2 },
+	{ 1929.8, 6276.8, 2 },
+	{ -3333.9, 3391.0, 2 },
 }
 MM.UnderWorld = 10000.0
 MM.BigSize = 640
--- icons that belong to the game itself; only their names are used here
+-- own bottles, one per perk
 MM.PerkMat = {
-	J = "specialty_juggernaut_zombies", R = "specialty_quickrevive_zombies", S = "specialty_fastreload_zombies",
-	M = "specialty_marathon_zombies", K = "specialty_additionalprimaryweapon_zombies",
+	J = "menu_mp_lobby_icon_film",
+	R = "menu_mp_lobby_views_bg",
+	S = "menu_mp_fileshare_custom",
+	M = "menu_mp_pip_red",
+	K = "menu_mp_pip_green",
 }
 -- fixed places: x, y, kind
 MM.Fixed = {
+	{ 526, 2340, "G3" },
+	{ -2626, 176, "G5" },
+	{ 2368, 240, "G4" },
+	{ 2169, 4784, "G1" },
+	{ -352, 3448, "G2" },
+	{ 960, -3712, "G6" },
+	{ -5, -8, "P" },
 	{ 2328, -232, "J" },
 	{ -2355, -36, "M" },
 	{ 0, -480, "K" },
@@ -61,43 +73,57 @@ MM.Fixed = {
 	{ -2360, 176, "W" },
 	{ 772, 2544, "W" },
 	{ 2968, 5368, "W" },
-	{ 526, 2340, "G3" },
-	{ -2626, 176, "G5" },
-	{ 2368, 240, "G4" },
-	{ 2169, 4784, "G1" },
-	{ -352, 3448, "G2" },
-	{ 960, -3712, "G6" },
 }
 -- caves drawn whole on the full map: atlas tile, left, right, bottom, top (world)
 MM.BigCaves = {
-	{ 1, -517, 504, -505, 549 },
-	{ 2, -3397, -2846, -598, 188 },
+	{ 1, -575, 597, -613, 569 },
+	{ 2, -3397, -2851, -598, 183 },
 	{ 3, 2218, 3561, 666, 1409 },
 	{ 4, 1202, 1617, -2581, -1541 },
 	{ 5, 2447, 3273, 4060, 4665 },
-	{ 6, -321, 1349, -3093, -2112 },
-	{ 7, 1847, 3038, 4246, 5564 },
-	{ 8, -1259, -194, 2214, 3196 },
-	{ 9, 1647, 2403, 3157, 4289 },
-	{ 10, -2924, -2221, -481, 466 },
-	{ 11, -604, 162, 4079, 4548 },
-	{ 12, 919, 1451, 3840, 4392 },
-	{ 13, 148, 602, 3376, 3581 },
-	{ 14, 357, 812, 1804, 2009 },
-	{ 15, 1710, 2159, 2790, 3083 },
+	{ 6, -321, 1358, -3093, -2283 },
+	{ 7, -199, 1212, -3093, -2112 },
+	{ 8, 2418, 3038, 4963, 5564 },
+	{ 9, 1847, 2706, 4246, 5115 },
+	{ 10, -1259, -194, 2214, 3196 },
+	{ 11, 1647, 2403, 3157, 4289 },
+	{ 12, -2924, -2221, -481, 466 },
+	{ 13, -604, 162, 4079, 4548 },
+	{ 14, 919, 1451, 3840, 4392 },
+	{ 15, 148, 602, 3376, 3581 },
+	{ 16, 1710, 2159, 2790, 3083 },
+	{ 17, -536, 548, -413, 515 },
 }
+-- x, y, name, colour, place it points to
 MM.BigLabels = {
-	{ 1700, 5600, "LABORATORIO" }, { 0, 5080, "ESTACION DEL TANQUE" }, { -380, 3200, "BUNKER DEL TANQUE - G2" },
-	{ 400, 1780, "TRINCHERA CENTRAL - G3" }, { 2450, 2250, "TRINCHERAS" }, { -1050, 1300, "TIERRA DE NADIE" },
-	{ 1550, 250, "TIERRA DE NADIE" }, { 0, -760, "MID - EXCAVACION" }, { 3050, -620, "ZONA DE JUGGERNOG - G4" },
-	{ -2700, 1050, "GRANJA - G5" }, { -1900, -2000, "ALDEA" }, { -1100, -3350, "ESTACION DEL TANQUE" },
-	{ 600, -2500, "IGLESIA" }, { 2450, -3800, "DETRAS DE LA IGLESIA - G6" },
-	{ 3930, 4450, "CUEVA DE FUEGO", 1, 0.4, 0.25 }, { 3350, 1780, "CUEVA DE VIENTO", 0.95, 0.9, 0.5 },
-	{ -3250, -850, "CUEVA DE RAYO", 0.8, 0.5, 1 }, { 2340, -2000, "CUEVA DE HIELO", 0.4, 0.8, 1 },
+	{ 1500, 5600, "LABORATORIO", 1, 0.95, 0.8, 2450, 5350 },
+	{ 0, 5120, "ESTACION DEL TANQUE", 1, 0.95, 0.8 },
+	{ -3000, 3700, "BUNKER DEL TANQUE - G2", 1, 0.95, 0.8, -620, 3400 },
+	{ 400, 1700, "TRINCHERA CENTRAL - G3", 1, 0.95, 0.8, 480, 2150 },
+	{ 3700, 3400, "TRINCHERAS", 1, 0.95, 0.8, 2650, 3080 },
+	{ 400, 1400, "TIERRA DE NADIE", 1, 0.95, 0.8, 250, 1010 },
+	{ 620, -430, "MID - EXCAVACION", 1, 0.95, 0.8, 120, -120 },
+	{ 3850, -800, "ZONA DE JUGGERNOG - G4", 1, 0.95, 0.8, 2950, -420 },
+	{ -2750, 1150, "GRANJA - G5", 1, 0.95, 0.8 },
+	{ -2400, -1900, "ALDEA", 1, 0.95, 0.8, -750, -2420 },
+	{ -1900, -3300, "ESTACION DEL TANQUE", 1, 0.95, 0.8, 230, -2960 },
+	{ 2900, -2700, "IGLESIA", 1, 0.95, 0.8, 720, -2620 },
+	{ 2700, -3900, "DETRAS DE LA IGLESIA - G6", 1, 0.95, 0.8, 1180, -3820 },
+	{ 3930, 4450, "CUEVA DE FUEGO", 1, 0.4, 0.25 },
+	{ 3350, 1780, "CUEVA DE VIENTO", 0.95, 0.9, 0.5 },
+	{ -3250, -850, "CUEVA DE RAYO", 0.8, 0.5, 1 },
+	{ 2340, -1900, "CUEVA DE HIELO", 0.4, 0.8, 1 },
 }
 MM.DotMat = "zombies_rank_3_ded"
 MM.ArrowMat = "zombies_rank_4_ded"
 MM.PanzerMat = "zombies_rank_5_ded"
+-- unused lobby pictures, replaced by our own drawings
+MM.GenMat = "menu_mp_lobby_icon_customgamemode"
+MM.BoxMat = "menu_mp_lobby_icon_clip"
+MM.PapMat = "menu_mp_lobby_icon_screenshot"
+MM.WunderMat = "menu_mp_lobby_views"
+MM.FootMat = "menu_mp_lobby_like"
+MM.TickMat = "menu_mp_lobby_icon_highlight"
 -- one colour per player number
 MM.AllyColor = {
 	{ 0.25, 0.65, 1 }, { 1, 0.85, 0.2 }, { 0.25, 0.95, 0.4 }, { 1, 0.45, 0.85 },
@@ -210,13 +236,30 @@ local function parse(self, state)
 	local feet = UIExpression.DvarString(nil, "mm_feet")
 	local fi = 0
 	if feet then
-		for ex, ey, a in string.gmatch(feet, "(%-?%d+),(%-?%d+),(%d)") do
+		for ex, ey, a, fy in string.gmatch(feet, "(%-?%d+),(%-?%d+),(%d),(%-?%d+)") do
 			fi = fi + 1
-			follow(self.footPos, fi, tonumber(ex), tonumber(ey), self.packet).a = a
+			local fo = follow(self.footPos, fi, tonumber(ex), tonumber(ey), self.packet)
+			fo.a = a
+			fo.yaw = tonumber(fy)
 		end
 	end
 	for i = fi + 1, 6 do
 		self.footPos[i] = nil
+	end
+	if self.packet % 5 == 1 then
+		local gens = UIExpression.DvarString(nil, "mm_gen")
+		self.gens = self.gens or {}
+		self.alert, self.alertState = nil, 0
+		if gens then
+			for n, st, pr in string.gmatch(gens, "(%d),(%d),(%d+)") do
+				st = tonumber(st)
+				self.gens["G" .. n] = { st = st, pr = pr }
+				if st >= 3 and st > self.alertState then
+					self.alertState = st
+					self.alert = "G" .. n
+				end
+			end
+		end
 	end
 	-- these change rarely
 	if self.packet % 20 == 1 or not self.poiList then
@@ -238,12 +281,45 @@ local function parse(self, state)
 	end
 end
 
+-- colour, text and mark of a generator badge
+local function dressGen(e, f, gens, packet)
+	local o = gens and gens[f[3]]
+	local st = o and o.st or 0
+	local blink = (packet or 0) % 10 < 5
+	local key = st .. (st == 1 and o.pr or "") .. ((st == 1 or st == 4) and blink and "b" or "")
+	if e.genKey == key then
+		return st
+	end
+	e.genKey = key
+	local r, g, b = 1, 1, 1
+	if st == 1 then
+		r, g, b = 1, 0.85, 0.15
+		if blink then
+			r, g, b = 1, 0.95, 0.6
+		end
+	elseif st == 2 then
+		r, g, b = 0.25, 1, 0.4
+	elseif st == 3 then
+		r, g, b = 1, 0.55, 0.05
+	elseif st == 4 then
+		r, g, b = 1, 0.1, 0.05
+		if blink then
+			r, g, b = 1, 0.65, 0.6
+		end
+	end
+	e.gen:setRGB(r, g, b)
+	e.genText:setText(st == 1 and (o.pr .. "%") or f[3])
+	e.genTick:setAlpha(st == 2 and 1 or 0)
+	e.genBang:setAlpha(st >= 3 and 1 or 0)
+	return st
+end
+
 local function fixedAlpha(f, part)
 	if f[3] == "K" then
 		return part == 1 and 1 or 0
 	end
 	local box = MM.BigCaves[part]
-	if not box or (f[1] > box[2] and f[1] < box[3] and f[2] > box[4] and f[2] < box[5] and part ~= 1) then
+	if not box or (f[1] > box[2] and f[1] < box[3] and f[2] > box[4] and f[2] < box[5] and part ~= 1 and part ~= 17) then
 		return 1
 	end
 	return 0.45
@@ -295,7 +371,7 @@ MM.Update = function(self, event)
 	if not crazy then
 		range = self.zoom or MM.Range
 		-- closer inside a cave, with a short glide
-		if self.part == 1 then
+		if self.part == 1 or self.part == 17 then
 			range = math.min(range, MM.CryptRange)
 		elseif MM.Under[self.part] then
 			range = math.min(range, self.part <= 5 and MM.CaveRange or 1300)
@@ -427,6 +503,9 @@ MM.Update = function(self, event)
 			local ex, ey = project(o.x, o.y)
 			place(e, ex, ey, 11, 0)
 			show(e, 1)
+			local footRot = ((o.yaw or 0) - yaw) * (self.rotsign or 1)
+			e.sole:setZRot(footRot)
+			e.redSole:setZRot(footRot)
 			show(e.danger, (o.a == "1" and (self.packet or 0) % 6 < 4) and 1 or 0)
 		end
 	end
@@ -438,9 +517,15 @@ MM.Update = function(self, event)
 		local f = MM.Fixed[i]
 		local e = self.fixed[i]
 		local ex, ey = project(f[1], f[2])
+		local st = e.gen and dressGen(e, f, self.gens, self.packet) or 0
+		if st >= 3 and not crazy then
+			-- in danger: stays on the border to show the way
+			ex = math.max(-half + 11, math.min(half - 11, ex))
+			ey = math.max(-half + 11, math.min(half - 11, ey))
+		end
 		if not crazy and math.abs(ex) < half + 6 and math.abs(ey) < half + 6 then
 			place(e, ex, ey, 7, 0)
-			show(e, fixedAlpha(f, self.part))
+			show(e, st >= 3 and 1 or fixedAlpha(f, self.part))
 		else
 			show(e, 0)
 		end
@@ -450,18 +535,18 @@ MM.Update = function(self, event)
 	for k = 1, #self.poiList do
 		local o = self.poiList[k]
 		local kind = string.sub(o.t, 1, 1)
-		local color = (kind == "B" or kind == "H") and MM.PoiColor[kind]
+		local color = kind == "B" and MM.PoiColor[kind]
 		local e = color and self.poi[pi + 1]
 		local ex, ey = project(o.x, o.y)
 		if kind == "H" then
-			ex, ey = project(o.x + 105, o.y + 105)
+			ex, ey = project(o.x + 130, o.y + 130)
 		end
 		if e and math.abs(ex) < half - 2 and math.abs(ey) < half - 2 then
 			pi = pi + 1
 			place(e, ex, ey, 7, 0)
 			if e.t ~= o.t then
 				e.t = o.t
-				e.label:setText(kind == "H" and "" or o.t)
+				e.label:setText("")
 				e.box:setAlpha(kind == "H" and 0 or 1)
 				e.cap:setAlpha(kind == "H" and 1 or 0)
 				e.label:setRGB(color[1], color[2], color[3])
@@ -509,7 +594,8 @@ MM.UpdateBig = function(self)
 	show(big.labels, crazy and 0 or 1)
 	show(big.caves, crazy and 0 or 1)
 	for i = 1, #MM.Fixed do
-		show(big.fixed[i], crazy and 0 or fixedAlpha(MM.Fixed[i], part))
+		local st = big.fixed[i].gen and dressGen(big.fixed[i], MM.Fixed[i], self.gens, self.packet) or 0
+		show(big.fixed[i], crazy and 0 or (st >= 3 and 1) or fixedAlpha(MM.Fixed[i], part))
 	end
 	local rs = self.rotsign or 1
 	local function put(e, x, y, size)
@@ -542,7 +628,7 @@ MM.UpdateBig = function(self)
 			e = big.zombies[zi]
 		end
 		if e then
-			put(e, o.x, o.y, (o.h == "3" and 7) or (o.h == "4" and 9) or 3.4)
+			put(e, o.x, o.y, (o.h == "3" and 7) or (o.h == "4" and 8) or 3.5)
 		end
 	end
 	for i = zi + 1, MM.MaxZombies do
@@ -559,7 +645,8 @@ MM.UpdateBig = function(self)
 		fi = fi + 1
 		local e = big.feet[fi]
 		if e then
-			put(e, o.x, o.y, 7)
+			put(e, o.x, o.y, 9)
+			e:setZRot(((o.yaw or 0) - 90) * rs)
 			if o.a == "1" then
 				e:setRGB(1, 0.12, 0.08)
 			else
@@ -575,9 +662,9 @@ MM.UpdateBig = function(self)
 	for i = 1, #self.poiList do
 		local o = self.poiList[i]
 		local kind = string.sub(o.t, 1, 1)
-		if kind == "H" and big.caps[ci + 1] then
+		if false then
 			ci = ci + 1
-			put(big.caps[ci], o.x + 130, o.y + 130, 4)
+			put(big.caps[ci], o.x + 150, o.y + 130, 5.5)
 		elseif kind == "B" then
 			boxed = true
 			put(big.box, o.x, o.y, 8)
@@ -596,16 +683,30 @@ MM.PlaceColor = {
 }
 MM.UpdatePlace = function(self)
 	local zone = UIExpression.DvarString(nil, "mm_zone")
-	if zone == nil or zone == self.lastZone then
+	if zone == nil then
 		return
 	end
-	self.lastZone = zone
+	local blink = (self.packet or 0) % 10 < 5
+	if self.alert then
+		zone = (self.alertState == 4 and "ATACAN " or "ZOMBIS HACIA ") .. self.alert
+	end
+	local key = zone .. (self.alert and blink and "*" or "")
+	if key == self.lastZone then
+		return
+	end
+	self.lastZone = key
 	self.place:setText(zone)
 	local r, g, b = 1, 0.95, 0.8
 	for i = 1, #MM.PlaceColor do
 		local p = MM.PlaceColor[i]
 		if string.find(zone, p[1]) then
 			r, g, b = p[2], p[3], p[4]
+		end
+	end
+	if self.alert then
+		r, g, b = 1, 0.55, 0.1
+		if self.alertState == 4 then
+			r, g, b = 1, blink and 0.2 or 0.55, blink and 0.15 or 0.5
 		end
 	end
 	self.place:setRGB(r, g, b)
@@ -690,8 +791,7 @@ MM.Attach = function(parent)
 		return e
 	end
 	local function footprint(parent, k, cr, cg, cb)
-		oval(parent, -4.5 * k, -9 * k, 4.5 * k, 3.5 * k, cr, cg, cb)
-		oval(parent, -3.6 * k, 2.5 * k, 3.6 * k, 9 * k, cr, cg, cb)
+		return image(parent, MM.FootMat, 21 * k, cr, cg, cb, 1)
 	end
 	local function text(parent, size, t)
 		local e = LUI.UIText.new()
@@ -706,29 +806,30 @@ MM.Attach = function(parent)
 	root.feet = {}
 	for i = 1, 6 do
 		local e = group(clip, 11, 0)
-		footprint(e, 0.9, 1, 0.8, 0.15)
+		e.sole = footprint(e, 0.9, 1, 0.8, 0.15)
 		e.danger = group(e, 11, 0)
-		footprint(e.danger, 1.2, 1, 0.12, 0.08)
+		e.redSole = footprint(e.danger, 1.2, 1, 0.12, 0.08)
 		root.feet[i] = e
 	end
 	local function fixedIcon(parent, kind, k)
 		local e = group(parent, 7, 0)
 		local mat = MM.PerkMat[kind]
 		if mat then
-			image(e, mat, 19 * k, 1, 1, 1, 1)
+			image(e, mat, 22 * k, 1, 1, 1, 1)
 		elseif kind == "W" then
-			-- own drawing for the random perk machine: a bottle with a question mark
-			bar(e, -2.6 * k, -8 * k, 2.6 * k, -3 * k, 0, 0, 0, 1)
-			oval(e, -6.4 * k, -5.2 * k, 6.4 * k, 8 * k, 0.62, 0.25, 0.95)
-			bar(e, -1.8 * k, -7.2 * k, 1.8 * k, -3.4 * k, 0.62, 0.25, 0.95, 1)
-			bar(e, -2.6 * k, -8.2 * k, 2.6 * k, -6.6 * k, 1, 0.85, 0.3, 1)
-			local q = text(e, 9.5, 3.4)
-			q:setText("?")
+			image(e, MM.WunderMat, 22 * k, 1, 1, 1, 1)
+		elseif kind == "P" then
+			image(e, MM.PapMat, 20 * k, 1, 1, 1, 1)
 		else
-			dot(e, 7.6 * k, 0.95, 0.95, 0.95)
-			dot(e, 4.4 * k, 0.07, 0.09, 0.12)
-			local q = text(e, 9, 2.5)
-			q:setText(kind)
+			e.gen = image(e, MM.GenMat, 20 * k, 1, 1, 1, 1)
+			e.genText = text(e, 10, 2)
+			e.genText:setText(kind)
+			e.genTick = group(e, 7, 0)
+			local tk = image(e.genTick, MM.TickMat, 10, 1, 1, 1, 1)
+			place(tk, 8, -7, 5, 0)
+			e.genBang = group(e, 7, 0)
+			local bg = image(e.genBang, MM.PanzerMat, 13, 1, 0.75, 0.7, 1)
+			place(bg, 8, -8, 6.5, 0)
 		end
 		return e
 	end
@@ -740,30 +841,24 @@ MM.Attach = function(parent)
 	for i = 1, MM.MaxPoi do
 		local e = group(clip, 7, 0)
 		e.box = group(e, 7, 1)
-		dot(e.box, 6, 0.08, 0.1, 0.13)
+		image(e.box, MM.BoxMat, 19, 1, 1, 1, 1)
 		e.cap = group(e, 7, 0)
-		-- green square with a white tick: cannot be mistaken for a player
-		bar(e.cap, -3.6, -3.6, 3.6, 3.6, 0, 0, 0, 1)
-		bar(e.cap, -2.8, -2.8, 2.8, 2.8, 0.1, 0.65, 0.25, 1)
-		local t1 = bar(e.cap, -2.1, 0, 0.1, 1, 1, 1, 1, 1)
-		t1:setZRot(-45)
-		local t2 = bar(e.cap, -1.4, -0.6, 2.6, 0.4, 1, 1, 1, 1)
-		t2:setZRot(50)
+		image(e.cap, MM.TickMat, 11, 1, 1, 1, 1)
 		e.label = text(e, 11, 1)
 		root.poi[i] = e
 	end
 	root.zombies, root.allies, root.mech = {}, {}, {}
 	for i = 1, MM.MaxZombies do
 		local e = group(clip, 6, 0)
-		dot(e, 2.4, 1, 0.13, 0.1)
+		image(e, MM.DotMat, 7, 1, 0.1, 0.08, 1)
 		e.up = group(e, 6, 0)
 		local tri = image(e.up, MM.ArrowMat, 6, 1, 0.85, 0.2, 1)
 		tri:setLeftRight(false, false, -3.2, 3.2)
-		tri:setTopBottom(false, false, -8.4, -3.4)
+		tri:setTopBottom(false, false, -8.8, -3.6)
 		e.down = group(e, 6, 0)
 		tri = image(e.down, MM.ArrowMat, 6, 0.4, 0.75, 1, 1)
 		tri:setLeftRight(false, false, -3.2, 3.2)
-		tri:setTopBottom(false, false, 3.4, 8.4)
+		tri:setTopBottom(false, false, 3.6, 8.8)
 		tri:setZRot(180)
 		root.zombies[i] = e
 	end
@@ -862,6 +957,18 @@ MM.Attach = function(parent)
 		local d = MM.BigLabels[i]
 		local e = group(big.labels, 80, 1)
 		local w = string.len(d[3]) * 2.7 + 4
+		if d[7] then
+			-- pointer: a thin bar turned towards the place, with a dot at its end
+			local mk = MM.BigSize / MM.World
+			local x1, y1 = (d[1] - MM.CenterX) * mk, (MM.CenterY - d[2]) * mk
+			local x2, y2 = (d[7] - MM.CenterX) * mk, (MM.CenterY - d[8]) * mk
+			local dx, dy = x2 - x1, y2 - y1
+			local len = math.sqrt(dx * dx + dy * dy)
+			local line = bar(big.labels, (x1 + x2 - len) / 2, (y1 + y2) / 2 - 0.6, (x1 + x2 + len) / 2, (y1 + y2) / 2 + 0.6, d[4], d[5], d[6], 0.75)
+			line:setZRot(-math.atan2(dy, dx) * 57.29578)
+			local tip = image(big.labels, MM.DotMat, 6, d[4], d[5], d[6], 1)
+			place(tip, x2, y2, 3, 0)
+		end
 		local lx = (d[1] - MM.CenterX) * MM.BigSize / MM.World
 		place(e, lx, (MM.CenterY - d[2]) * MM.BigSize / MM.World, 80, 0)
 		bar(e, -w, -7, w, 7, 0.02, 0.03, 0.04, 0.75)
@@ -877,16 +984,13 @@ MM.Attach = function(parent)
 	end
 	big.feet, big.caps, big.zombies, big.mech, big.allies = {}, {}, {}, {}, {}
 	for i = 1, 6 do
-		big.feet[i] = image(view, MM.DotMat, 14, 1, 0.8, 0.15, 0)
-		big.caps[i] = image(view, "white", 8, 0.15, 0.85, 0.3, 0)
+		big.feet[i] = image(view, MM.FootMat, 18, 1, 0.8, 0.15, 0)
+		big.caps[i] = image(view, MM.TickMat, 11, 1, 1, 1, 0)
 	end
 	big.box = group(view, 8, 0)
-	dot(big.box, 6, 0.08, 0.1, 0.13)
-	local bt = text(big.box, 11, 2)
-	bt:setText("B")
-	bt:setRGB(0.3, 0.85, 1)
+	image(big.box, MM.BoxMat, 19, 1, 1, 1, 1)
 	for i = 1, MM.MaxZombies do
-		big.zombies[i] = image(view, MM.DotMat, 7, 1, 0.13, 0.1, 0)
+		big.zombies[i] = image(view, MM.DotMat, 7, 1, 0.1, 0.08, 0)
 	end
 	for i = 1, MM.MaxMech do
 		big.mech[i] = image(view, MM.PanzerMat, 18, 1, 1, 1, 0)
@@ -922,56 +1026,42 @@ MM.Attach = function(parent)
 		lg:addElement(e)
 	end
 	words("SIGNIFICADO", -614, -301, 18, 1, 0.85, 0.3)
-	local function ring(e, r, cr, cg, cb)
-		dot(e, r + 0.8, cr, cg, cb)
-		dot(e, r * 0.64, 0.07, 0.09, 0.12)
-	end
-	local function letter(e, l, cr, cg, cb)
-		local q = text(e, 11, 1.5)
-		q:setText(l)
-		q:setRGB(cr, cg, cb)
+	local function pic(mat, size, r, g, b)
+		return function(e)
+			image(e, mat, size, r or 1, g or 1, b or 1, 1)
+		end
 	end
 	local rows = {
-		{ "Tu", function(e) image(e, MM.ArrowMat, 18, 1, 1, 1, 1) end },
-		{ "Otro jugador (un color cada uno)", function(e) image(e, MM.ArrowMat, 16, 1, 0.85, 0.2, 1) end },
-		{ "Zombi", function(e) dot(e, 3.5, 1, 0.13, 0.1) end },
-		{ "Panzer Soldat", function(e) image(e, MM.PanzerMat, 20, 1, 1, 1, 1) end },
-		{ "Zona donde pisa un robot", function(e)
-			ring(e, 7.5, 1, 0.65, 0.15)
-			bar(e, -3.4, -3, -0.8, 3, 1, 0.68, 0.23, 1)
-			bar(e, 0.8, -3, 3.4, 3, 1, 0.68, 0.23, 1)
-		end },
-		{ "Pie de robot", function(e) dot(e, 6, 1, 0.8, 0.15) end },
-		{ "Pie bajando: sal de ahi", function(e) dot(e, 6, 1, 0.12, 0.08) end },
-		{ "Generador", function(e) ring(e, 7, 0.95, 0.95, 0.95) letter(e, "G", 1, 1, 1) end },
-		{ "Generador capturado", function(e)
-			bar(e, -5, -5, 5, 5, 0, 0, 0, 1)
-			bar(e, -4, -4, 4, 4, 0.15, 0.85, 0.3, 1)
-		end },
-		{ "Caja misteriosa", function(e) dot(e, 7, 0.08, 0.1, 0.13) letter(e, "B", 0.3, 0.85, 1) end },
-		{ "Pack-a-Punch", function(e) ring(e, 7, 1, 0.5, 0.9) letter(e, "P", 1, 0.5, 0.9) end },
+		{ "Tu", pic(MM.ArrowMat, 18) },
+		{ "Otro jugador (un color cada uno)", pic(MM.ArrowMat, 17, 1, 0.85, 0.2) },
+		{ "Zombi", pic(MM.DotMat, 11, 1, 0.1, 0.08) },
+		{ "Panzer Soldat", pic(MM.PanzerMat, 21) },
+		{ "Zona donde pisa un robot", pic(MM.FootMat, 18, 1, 0.66, 0.2) },
+		{ "Pie de robot", pic(MM.FootMat, 20, 1, 0.8, 0.15) },
+		{ "Pie bajando: sal de ahi", pic(MM.FootMat, 20, 1, 0.12, 0.08) },
+		{ "Generador libre", pic(MM.GenMat, 19) },
+		{ "Generador: capturandolo", pic(MM.GenMat, 19, 1, 0.85, 0.15) },
+		{ "Generador tuyo", pic(MM.GenMat, 19, 0.25, 1, 0.4) },
+		{ "Generador: zombis hacia el", pic(MM.GenMat, 19, 1, 0.55, 0.05) },
+		{ "Generador ATACADO", pic(MM.GenMat, 19, 1, 0.1, 0.05) },
+		{ "Caja misteriosa", pic(MM.BoxMat, 20) },
+		{ "Pack-a-Punch", "P" },
 		{ "Wunderfizz (ventaja al azar)", "W" },
 		{ "Juggernog", "J" },
 		{ "Quick Revive", "R" },
 		{ "Speed Cola", "S" },
 		{ "Stamin-Up", "M" },
 		{ "Mule Kick (en la cripta)", "K" },
-		{ "Baston (cripta y Crazy Place)", function(e)
-			ring(e, 7.5, 0.35, 0.78, 1)
-			local st = bar(e, -0.8, -4.5, 0.8, 4.5, 0.92, 0.88, 0.8, 1)
-			st:setZRot(-45)
-			oval(e, 1, -5, 4.6, -1.4, 0.35, 0.78, 1)
-		end },
-		{ "Portal (Crazy Place)", function(e)
-			dot(e, 7.5, 0.76, 0.45, 1)
-			dot(e, 4, 0.07, 0.09, 0.12)
-			dot(e, 2.4, 0.76, 0.45, 1)
-		end },
+		{ "Baston: circulo con vara (cripta)" },
+		{ "Portal: remolino (Crazy Place)" },
 	}
 	for i = 1, #rows do
-		local y = -273 + (i - 1) * 25
+		local y = -277 + (i - 1) * 21.8
 		local e
-		if type(rows[i][2]) == "string" then
+		if rows[i][2] == nil then
+			e = group(lg, 7, 1)
+			image(e, MM.DotMat, 14, 0.4, 0.8, 1, 1)
+		elseif type(rows[i][2]) == "string" then
 			e = fixedIcon(lg, rows[i][2], 1)
 			e:setAlpha(1)
 		else
