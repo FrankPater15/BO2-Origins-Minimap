@@ -1,0 +1,7 @@
+*.npy
+*.bin
+ents.json
+*.log
+*.zip
+medir/
+__pycache__/
