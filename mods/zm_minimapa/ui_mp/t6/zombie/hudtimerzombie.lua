@@ -278,11 +278,16 @@ MM.Update = function(self, event)
 	glide(me)
 	me.yaw = me.fyaw + (me.tyaw - me.fyaw) * t
 	local px, py, yaw = me.x, me.y, me.yaw
-	local newYaw = yaw
+	-- measured on video: positions reach the screen one frame after setZRot, so the
+	-- pictures are turned with an older yaw (mm_giro 1: one frame, 3: two frames)
+	local turnYaw = yaw
 	if self.giro == 1 then
-		yaw = me.lastYaw or yaw
+		turnYaw = me.yaw1 or yaw
+	elseif self.giro == 3 then
+		turnYaw = me.yaw2 or me.yaw1 or yaw
 	end
-	me.lastYaw = newYaw
+	me.yaw2 = me.yaw1
+	me.yaw1 = yaw
 	local rad = yaw * 0.017453292519943
 	local s, c = math.sin(rad), math.cos(rad)
 	local crazy = px > 8000
@@ -334,11 +339,11 @@ MM.Update = function(self, event)
 		else
 			local cx, cy = project(x, y)
 			place(e, cx, cy, w * scale / 2, 0)
-			e:setZRot((90 - newYaw) * rs)
+			e:setZRot((90 - turnYaw) * rs)
 		end
 	end
 	if spin then
-		self.spin:setZRot((90 - newYaw) * rs)
+		self.spin:setZRot((90 - turnYaw) * rs)
 	end
 	if crazy then
 		lay(layer[2], MM.CrazyX, MM.CrazyY, MM.CrazyWorld)

@@ -2,6 +2,21 @@
 
 La numeración sigue las versiones internas de desarrollo: `0.18.0` es la versión 18.
 
+## 0.19.0-beta (2026-11-24)
+
+Corregido a partir de un video de la 0.18. Pendiente de probar en el juego.
+
+- El giro de las imágenes se retrasa un cuadro para que coincida con los iconos (la corrección de la 0.15 iba en sentido contrario)
+- `mm_giro 3`: retraso de dos cuadros
+- La cripta se detecta también en su piso alto
+
+Visto en el video de la 0.18: estructuras iluminadas, relieve, iconos de ventajas, generador capturado y pies de robot.
+
+### Pendiente
+
+- Dibujar el anillo alto de la cripta
+- Probar el mapa grande y la leyenda
+
 ## 0.18.0-beta (2026-11-24)
 
 Primera versión publicada. Desde la 0.15 no se ha probado en el juego.

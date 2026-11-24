@@ -35,7 +35,7 @@ Minimapa para **Origins** (Black Ops 2 Zombies) en Plutonium T6. Te sigue, gira 
 | `set minimapa_lui 0` / `1` | Oculta / muestra el minimapa |
 | `set mm_zoom 1000` | Zoom, de 700 (cerca) a 2500 (lejos); normal 1750 |
 | `set mm_big 1` / `0` | Abre / cierra el mapa grande |
-| `set mm_giro 0` / `1` / `2` | Modo de giro, si el mapa tiembla al mover la cámara |
+| `set mm_giro 0` / `1` / `2` / `3` | Modo de giro, si el mapa tiembla al mover la cámara |
 
 ## Limitaciones
 

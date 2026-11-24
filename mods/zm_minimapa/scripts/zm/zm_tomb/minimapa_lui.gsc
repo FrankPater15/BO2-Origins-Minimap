@@ -19,7 +19,7 @@ init()
 	precacheshader( "zombies_rank_5_ded" );
 	setdvar( "mm_zone", "" );
 	if ( getdvar( "mm_giro" ) == "" )
-		setdvar( "mm_giro", "1" ); // 0 plain, 1 compensate rotation delay, 2 container
+		setdvar( "mm_giro", "1" ); // 0 plain, 1 turn pictures one frame later, 2 container, 3 two frames
 	setdvar( "mm_big", "0" ); // full map, key M
 	setdvar( "mm_ay", "" );
 	if ( getdvar( "minimapa_lui" ) == "" )
@@ -144,6 +144,9 @@ mml_key( x, y )
 
 mml_under( org )
 {
+	// the dig site: every floor under the platform belongs to the crypt
+	if ( org[ 2 ] < 250 && org[ 0 ] * org[ 0 ] + org[ 1 ] * org[ 1 ] < 230400 )
+		return 1;
 	// 100 unit cells; the offset keeps the values positive
 	k = mml_key( int( ( org[ 0 ] + 20000 ) / 100 ), int( ( org[ 1 ] + 20000 ) / 100 ) );
 	if ( isdefined( level.mml_cells[ k ] ) && org[ 2 ] < level.mml_cells[ k ] )
