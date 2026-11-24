@@ -2,7 +2,7 @@
 
 Minimapa para **Origins** (Black Ops 2 Zombies) en Plutonium T6. Te sigue, gira contigo y muestra el relieve del mapa.
 
-> **En desarrollo.** Probado en solitario. Falta comprobar el cooperativo, Crazy Place y el ataque a generadores.
+> **En desarrollo.** Probado en solitario. Falta comprobar el cooperativo.
 
 ![Mapa](capturas/mapa.png)
 
@@ -20,7 +20,9 @@ Minimapa para **Origins** (Black Ops 2 Zombies) en Plutonium T6. Te sigue, gira 
 
 ![Estructuras](capturas/estructuras.png)
 
-*Las imágenes son simulaciones, no capturas del juego.*
+![Mapa grande en el juego](capturas/mapa_grande.png)
+
+*Sólo la última imagen es una captura del juego; las demás son simulaciones.*
 
 ## Instalación
 
@@ -43,7 +45,7 @@ Minimapa para **Origins** (Black Ops 2 Zombies) en Plutonium T6. Te sigue, gira 
 ## Limitaciones
 
 - En cooperativo sólo lo ve el anfitrión.
-- Reemplaza, mientras estén instaladas, imágenes del juego que no se usan en partida: las 17 de la carpeta `images` de este repositorio. Pueden verse cambiadas en el menú o el lobby.
+- Reemplaza, mientras estén instaladas, imágenes del juego que no se usan en partida: las 19 de la carpeta `images` de este repositorio. Pueden verse cambiadas en el menú o el lobby.
 - Plutonium usa controles y algunas estadísticas aparte con un mod cargado.
 
 ## Desinstalar

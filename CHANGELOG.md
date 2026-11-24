@@ -2,6 +2,31 @@
 
 La numeración sigue las versiones internas de desarrollo: `0.18.0` es la versión 18.
 
+## 0.24.0-beta (2026-11-24)
+
+Probada con un recorrido automático por 22 puntos del mapa.
+
+- Iglesia completa y separada por pisos
+- Piso alto de la cripta con bordes más suaves
+- Nombres por encima de las líneas en el mapa grande
+- Leyenda más corta y con los dibujos de bastón y portal
+- `pruebas/recorrido.gsc`: recorrido automático para probar el minimapa
+
+### Visto en el juego
+
+- Cuevas, cripta, iglesia, laboratorio, G1, búnker y Crazy Place
+- Ataque a generadores: aviso, icono en el borde y cambio de objetivo
+- Panzer Soldat en el minimapa y en el mapa grande
+
+### Sin comprobar
+
+- Cooperativo
+
+### Fallos conocidos
+
+- Los zombis tapan el icono del generador que atacan
+- El piso alto de la cripta es aproximado
+
 ## 0.23.0-beta (2026-11-24)
 
 Probada en el juego con un video de 6 minutos.

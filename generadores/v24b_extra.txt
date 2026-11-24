@@ -1,0 +1,28 @@
+
+V("cov=roof<60\n","""cov=roof<60
+POLY=np.array([(120,-2395),(640,-2455),(700,-2395),(1080,-2345),(1110,-2790),(740,-2830),(480,-2940),(220,-2880)],np.float32)
+def inpoly(a,b):
+    r=np.zeros(len(a),bool);j=len(POLY)-1
+    for i in range(len(POLY)):
+        (x1,y1),(x2,y2)=POLY[i],POLY[j]
+        r^=((y1>b)!=(y2>b))&(a<(x2-x1)*(b-y1)/(y2-y1+1e-9)+x1);j=i
+    return r
+nave=inpoly(wx,wy)&(wz>240)&(wz<430);cov=cov|nave
+""")
+V("part[rest]=new\n","part[rest]=new\npart[nave]=6\n")
+V("look={}\n","""fix={}
+for cx_,cy_,th,q in cells:fix.setdefault((cx_,cy_),[]).append((th,q))
+for (cx_,cy_),l_ in list(fix.items()):
+    if any(q in(6,7) for _,q in l_):fix[(cx_,cy_)]=[(max(th,215) if q==7 else th,q) for th,q in l_]
+gx,gy=np.meshgrid(np.arange(195,220),np.arange(165,182));gx,gy=gx.ravel(),gy.ravel();ok_=inpoly(gx*100-20000+50.,gy*100-20000+50.)
+for cx_,cy_ in zip(gx[ok_],gy[ok_]):
+    fix[(int(cx_),int(cy_))]=[(215,7),(440,6)]
+cells=[(x_,y_,th,q) for (x_,y_),l_ in fix.items() for th,q in sorted(l_)]
+look={}
+""")
+V("cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(13,13)));mm=(cv2.GaussianBlur(mm.astype(np.float32),(0,0),4)>.5)","""cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(13,13)))
+    n_h,l_h,s_h,_=cv2.connectedComponentsWithStats(1-mm);hole=np.zeros_like(mm)
+    for q_ in range(1,n_h):
+        if 300<s_h[q_,4]<200000:hole|=(l_h==q_).astype(np.uint8)
+    mm=cv2.morphologyEx(mm,cv2.MORPH_CLOSE,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(75,75)));mm[hole>0]=0
+    mm=(cv2.GaussianBlur(mm.astype(np.float32),(0,0),7)>.5)""")

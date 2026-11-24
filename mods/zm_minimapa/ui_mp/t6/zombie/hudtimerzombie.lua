@@ -92,7 +92,7 @@ MM.BigCaves = {
 	{ 14, 919, 1451, 3840, 4392 },
 	{ 15, 148, 602, 3376, 3581 },
 	{ 16, 1710, 2159, 2790, 3083 },
-	{ 17, -536, 548, -413, 515 },
+	{ 17, -526, 538, -403, 505 },
 }
 -- x, y, name, colour, place it points to
 MM.BigLabels = {
@@ -592,6 +592,7 @@ MM.UpdateBig = function(self)
 	end
 	show(big.crazy, crazy and 1 or 0)
 	show(big.labels, crazy and 0 or 1)
+	show(big.lines, crazy and 0 or 1)
 	show(big.caves, crazy and 0 or 1)
 	for i = 1, #MM.Fixed do
 		local st = big.fixed[i].gen and dressGen(big.fixed[i], MM.Fixed[i], self.gens, self.packet) or 0
@@ -952,6 +953,8 @@ MM.Attach = function(parent)
 	end
 	-- everything on top of the caves
 	view = group(big, frame, 1)
+	-- pointers go under every name plate
+	big.lines = group(view, frame, 1)
 	big.labels = group(view, frame, 1)
 	for i = 1, #MM.BigLabels do
 		local d = MM.BigLabels[i]
@@ -964,9 +967,9 @@ MM.Attach = function(parent)
 			local x2, y2 = (d[7] - MM.CenterX) * mk, (MM.CenterY - d[8]) * mk
 			local dx, dy = x2 - x1, y2 - y1
 			local len = math.sqrt(dx * dx + dy * dy)
-			local line = bar(big.labels, (x1 + x2 - len) / 2, (y1 + y2) / 2 - 0.6, (x1 + x2 + len) / 2, (y1 + y2) / 2 + 0.6, d[4], d[5], d[6], 0.75)
+			local line = bar(big.lines, (x1 + x2 - len) / 2, (y1 + y2) / 2 - 0.6, (x1 + x2 + len) / 2, (y1 + y2) / 2 + 0.6, d[4], d[5], d[6], 0.75)
 			line:setZRot(-math.atan2(dy, dx) * 57.29578)
-			local tip = image(big.labels, MM.DotMat, 6, d[4], d[5], d[6], 1)
+			local tip = image(big.lines, MM.DotMat, 6, d[4], d[5], d[6], 1)
 			place(tip, x2, y2, 3, 0)
 		end
 		local lx = (d[1] - MM.CenterX) * MM.BigSize / MM.World
@@ -1013,7 +1016,7 @@ MM.Attach = function(parent)
 
 	-- legend, left of the full map
 	local lg = group(big, 10, 1)
-	bar(lg, -628, -318, -334, 196, 0.03, 0.045, 0.06, 0.92)
+	bar(lg, -628, -318, -334, 178, 0.03, 0.045, 0.06, 0.92)
 	bar(lg, -628, -318, -334, -316, 0.55, 0.75, 0.8, 0.9)
 	local function words(t, x, y, size, r, g, b)
 		local e = LUI.UIText.new()
@@ -1052,11 +1055,11 @@ MM.Attach = function(parent)
 		{ "Speed Cola", "S" },
 		{ "Stamin-Up", "M" },
 		{ "Mule Kick (en la cripta)", "K" },
-		{ "Baston: circulo con vara (cripta)" },
-		{ "Portal: remolino (Crazy Place)" },
+		{ "Baston (cripta y Crazy Place)", pic("menu_mp_pip_blue", 20) },
+		{ "Portal (Crazy Place)", pic("menu_mp_pip_outline", 20) },
 	}
 	for i = 1, #rows do
-		local y = -277 + (i - 1) * 21.8
+		local y = -279 + (i - 1) * 21
 		local e
 		if rows[i][2] == nil then
 			e = group(lg, 7, 1)
