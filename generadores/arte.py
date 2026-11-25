@@ -70,10 +70,14 @@ def box():
         q=glyph(x,630,390,t);A.put(grow(q,26),(30,14,0),.95);A.grad(q,(255,240,110),(255,190,10))
     return A
 def pap():
-    A=Art();c=(255,90,215);badge(A,c)
-    for i,y in enumerate((620,465,310)):
-        m=L(poly((512,y-120),(760,y+85),(760,y+185),(512,y-20),(264,y+185),(264,y+85)));A.put(grow(m,18),K,.9);A.grad(m,(255,246,205),lerp((255,200,90),c,.35*(2-i)))
-    return A
+    # upgrade machine: cabinet with two rollers and a big arrow
+    A=Art();c=(225,80,200);A.put(np.clip(1-np.hypot(XX-512,YY-512)/520,0,1)**1.3*.7,c)
+    m=L(both(rr(110,250,914,930,90),rr(300,90,724,300,60)));A.put(blur(grow(m,46),12),K,.97);A.grad(m,lerp(c,W,.45),lerp(c,K,.5));A.bevel(m,26,.5)
+    w=L(rr(200,350,824,700,50));A.put(grow(w,10),K,.6);A.grad(w,(14,16,30),(44,24,60))
+    for y in (430,620):
+        m=L(rr(220,y-58,804,y+58,56));A.grad(m,(225,232,240),(90,96,110));A.bevel(m,16,.4)
+    m=L(poly((512,325),(712,535),(596,535),(596,725),(428,725),(428,535),(312,535)));A.put(grow(m,26),K,.95);A.grad(m,(255,250,170),(255,170,30));A.bevel(m,14,.35)
+    A.grad(L(ell(512,185,62)),(255,250,190),(255,180,40));A.grad(L(rr(300,775,724,850,36)),(50,20,50),(25,10,28));return A
 def bottle(c,cap1,cap2,sym):
     # long-neck glass soda bottle, crown cap, round label
     A=Art();A.put(np.clip(1-np.hypot((XX-512)/430,(YY-600)/560),0,1)**1.2*.85,c)
