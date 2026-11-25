@@ -2,6 +2,14 @@
 
 La numeración sigue las versiones internas de desarrollo: `0.18.0` es la versión 18.
 
+## 0.26.1 (2026-11-25)
+
+Versión estable. Los archivos del mod son los mismos de la 0.26.1-beta. Probada en solitario.
+
+### Sin comprobar
+
+- Cooperativo, mando y "Reset to Default"
+
 ## 0.26.1-beta (2026-11-24)
 
 - Las botellas muestran el logo de cada ventaja, tomado del juego en ejecución; son un poco más grandes
