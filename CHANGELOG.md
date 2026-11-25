@@ -4,6 +4,7 @@ La numeración sigue las versiones internas de desarrollo: `0.18.0` es la versi�
 
 ## 0.26.1-beta (2026-11-24)
 
+- Las botellas muestran el logo de cada ventaja, tomado del juego en ejecución
 - Icono nuevo del Pack-a-Punch: máquina de piedra con calavera y rodillos azules
 - Los deslizadores de Opciones ya no salen con portales morados
 - Si vienes de una versión anterior, borra `menu_mp_pip_outline.iwi` de `t6\images` y de `t6\mods\zm_minimapa\images`

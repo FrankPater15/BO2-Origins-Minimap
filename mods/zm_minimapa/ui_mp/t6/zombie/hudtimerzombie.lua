@@ -53,6 +53,14 @@ MM.PerkMat = {
 	M = "menu_mp_pip_red",
 	K = "menu_mp_pip_green",
 }
+-- logos the game itself has loaded, shown on the label of each bottle
+MM.PerkLogo = {
+	J = "specialty_juggernaut_zombies",
+	R = "specialty_quickrevive_zombies",
+	S = "specialty_fastreload_zombies",
+	M = "specialty_marathon_zombies",
+	K = "specialty_additionalprimaryweapon_zombies",
+}
 -- fixed places: x, y, kind
 MM.Fixed = {
 	{ 526, 2340, "G3" },
@@ -834,6 +842,8 @@ MM.Attach = function(parent)
 		local mat = MM.PerkMat[kind]
 		if mat then
 			image(e, mat, 22 * k, 1, 1, 1, 1)
+			local logo = image(e, MM.PerkLogo[kind], 9 * k, 1, 1, 1, 1)
+			place(logo, 0, 5.3 * k, 4.5 * k, 0)
 		elseif kind == "W" then
 			image(e, MM.WunderMat, 22 * k, 1, 1, 1, 1)
 		elseif kind == "P" then

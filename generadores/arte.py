@@ -112,23 +112,14 @@ def bottle(c,cap1,cap2,sym):
 def white(A,m,col=(255,250,235),end=(228,220,200)):
     A.put(grow(m,14),K,.75);A.grad(m,col,end)
 def wunder():return bottle((170,70,255),(255,130,150),(170,10,40),lambda A:A.grad(glyph(512,742,300),(255,246,160),(255,196,30)))
-def sh_shield(A):
-    white(A,L(poly((512,618),(625,655),(618,760),(580,822),(512,872),(444,822),(406,760),(399,655))));A.put(L(both(rr(488,665,536,820,8),rr(440,712,584,760,8))),(205,20,25))
-def sh_heart(A):
-    white(A,L(both(ell(458,705,66),ell(566,705,66),poly((399,735),(625,735),(512,868)))));A.put(L(lambda d:d.line([(395,745),(455,745),(482,690),(520,800),(548,745),(630,745)],fill=255,width=26,joint='curve')),(20,110,210))
-def sh_speed(A):
-    for x in (430,540):white(A,L(poly((x-40,635),(x+30,635),(x+115,742),(x+30,850),(x-40,850),(x+45,742))))
-def sh_wing(A):
-    white(A,L(both(poly((420,780),(400,690),(600,630),(640,650),(560,712)),poly((430,800),(520,722),(618,712),(540,772)),poly((440,838),(500,786),(585,778),(520,840)))))
-def sh_shoe(A):
-    m=L(lambda d:(d.arc((412,640,612,850),150,390,fill=255,width=58),d.rectangle((418,780,470,858),fill=255),d.rectangle((554,780,606,858),fill=255)));white(A,m)
-    A.put(L(both(*[ell(x,y,11) for x,y in ((442,745),(470,690),(512,668),(554,690),(582,745))])),(20,70,45))
+# the label stays empty: the mod shows the logo the game already has loaded on top of it
+def blank(A):pass
 GOLD=((255,236,150),(190,130,25))
-def jugg():return bottle((228,28,34),*GOLD,sh_shield)
-def revive():return bottle((40,160,255),*GOLD,sh_heart)
-def speed():return bottle((40,200,70),*GOLD,sh_speed)
-def stamin():return bottle((255,176,20),*GOLD,sh_wing)
-def mule():return bottle((20,150,120),*GOLD,sh_shoe)
+def jugg():return bottle((228,28,34),*GOLD,blank)
+def revive():return bottle((40,160,255),*GOLD,blank)
+def speed():return bottle((40,200,70),*GOLD,blank)
+def stamin():return bottle((255,176,20),*GOLD,blank)
+def mule():return bottle((20,150,120),*GOLD,blank)
 def foot():
     A=Art();m=L(both(ell(512,360,285,310),ell(512,820,215,165),rr(345,560,679,760,60)));A.put(blur(grow(m,60),12),K,.97);A.grad(m,W,(190,190,190));A.bevel(m,34,.4)
     A.put(L(both(*[rr(330,170+i*95,694,212+i*95,18) for i in range(5)],rr(390,770,634,808,16),rr(390,845,634,883,16))),(45,38,30),.9);return A

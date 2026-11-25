@@ -114,7 +114,7 @@ Borra `mods\zm_minimapa` y, de `images`, los archivos que tienen el mismo nombre
 
 ## Aviso
 
-Proyecto de fans, gratuito y no oficial, sin relación con Activision, Treyarch ni Plutonium. Call of Duty y sus contenidos pertenecen a sus dueños. El trazado se basa en la geometría de Origins; los iconos son dibujos propios.
+Proyecto de fans, gratuito y no oficial, sin relación con Activision, Treyarch ni Plutonium. Call of Duty y sus contenidos pertenecen a sus dueños. El trazado se basa en la geometría de Origins; los iconos son dibujos propios, salvo los logos de las ventajas: los muestra el juego desde sus propios archivos y no se incluyen aquí.
 
 ## Licencia
 
