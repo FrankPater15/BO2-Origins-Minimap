@@ -39,7 +39,7 @@ Entra a [**Releases**](https://github.com/FrankPater15/BO2-Origins-Minimap/relea
 1. Cierra el juego.
 2. Pulsa **Windows + R**, pega esto y dale a Enter:
    ```
-   %localappdata%\Plutonium\storage	6
+   %localappdata%\Plutonium\storage\t6
    ```
 3. Si ya hay una carpeta `images`, guarda una copia en otro sitio.
 4. Abre el zip y copia **`mods`** e **`images`** dentro de `t6`. Si Windows pregunta, acepta combinar y reemplazar.
@@ -47,7 +47,7 @@ Entra a [**Releases**](https://github.com/FrankPater15/BO2-Origins-Minimap/relea
 Van **las dos en `t6`**; no metas `images` dentro de `mods`. Debe quedar así:
 
 ```
-Plutonium\storage	6
+Plutonium\storage\t6
 ├── images
 │   ├── hud_zombierank_5.iwi
 │   └── ... (19 archivos del mod)
