@@ -1,12 +1,20 @@
-# BO2 Origins Minimap
+<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="capturas/readme/hero-quieto.webp"><img src="capturas/readme/hero.webp" width="100%" alt="BO2 Origins Minimap: mapa 3D de Origins con una flecha que lo recorre"></picture></p>
 
-Minimapa para **Origins** (Black Ops 2 Zombies) en Plutonium T6. Te sigue, gira contigo y muestra el relieve del mapa.
+<p align="center">
+  <a href="https://github.com/FrankPater15/BO2-Origins-Minimap/releases"><img src="capturas/readme/b-descargar.svg" height="46" alt="Descargar"></a>
+  <a href="#instalacion"><img src="capturas/readme/b-instalar.svg" height="46" alt="Cómo instalar"></a>
+</p>
+
+Minimapa para **Origins** (Black Ops 2 Zombies) en Plutonium T6. Te sigue, gira contigo y muestra el relieve del mapa. Gratis.
 
 > Probado en solitario. El cooperativo está sin comprobar.
 
-![Mapa](capturas/mapa.png)
+<h2><img src="capturas/readme/t-hace.svg" width="100%" alt="Qué hace"></h2>
 
-## Qué hace
+<table>
+  <tr>
+    <td width="40%"><img src="capturas/readme/girando.webp" width="100%" alt="El minimapa girando en la partida"></td>
+    <td valign="top">
 
 - Minimapa con zoom, giro y puntos cardinales
 - Zombis (con marca si están arriba o abajo), Panzer Soldat, compañeros y pies de los robots gigantes
@@ -16,15 +24,29 @@ Minimapa para **Origins** (Black Ops 2 Zombies) en Plutonium T6. Te sigue, gira 
 - Zombis restantes, vida y nombre del lugar
 - Mapa grande con leyenda (tecla **M**, se cambia en Controles)
 
-![Botellas](capturas/botellas.png)
+    </td>
+  </tr>
+</table>
 
-![Estructuras](capturas/estructuras.png)
+<p align="center"><img src="capturas/readme/detalles.svg" width="100%" alt="Relieve real desde la geometría del nivel. Radar en vivo de zombis y Panzer. Generadores con aviso si los atacan. Mapa completo con la tecla M."></p>
+
+### El mapa grande
 
 ![Mapa grande en el juego](capturas/mapa_grande.png)
 
-*Sólo el mapa grande y la pantalla de controles son capturas del juego; las demás imágenes son simulaciones.*
+### Se ilumina donde estás
 
-## Instalación
+![Estructuras](capturas/estructuras.png)
+
+### Iconos propios
+
+<p align="center"><img src="capturas/readme/iconos.png" width="100%" alt="Iconos: jugador, zombi, Panzer, caja, generador, Pack-a-Punch, pie de robot, botellas y bastón"></p>
+
+*El mapa grande y la pantalla de controles son capturas del juego; el minimapa que gira también, con fotogramas intermedios añadidos (v0.25). Las estructuras y las animaciones son ilustraciones. Las botellas reciben el logo de cada ventaja dentro del juego.*
+
+<a id="instalacion"></a>
+
+<h2><img src="capturas/readme/t-instalar.svg" width="100%" alt="Instalación"></h2>
 
 **Necesitas:** Black Ops 2 funcionando en [Plutonium](https://plutonium.pw) (T6) y el mapa Origins.
 
@@ -67,7 +89,7 @@ Plutonium\storage\t6
 
 Si al volver a abrir el juego no aparece, repite `loadmod zm_minimapa`.
 
-## Cambiar la tecla del mapa grande
+<h2><img src="capturas/readme/t-tecla.svg" width="100%" alt="Cambiar la tecla del mapa grande"></h2>
 
 Dentro de una partida en Origins: **Esc → Options → Controls → Interact → MAPA GRANDE (MINIMAPA)**. Haz clic, o usa las flechas izquierda y derecha, hasta la tecla que quieras. Se guarda sola y no ofrece teclas que ya uses para otra acción.
 
@@ -81,7 +103,7 @@ La opción no sale en el menú principal. Teclas disponibles: M, N, B, H, J, K, 
 No existe esa opción. Escribe en la consola `bind M "toggle mm_big 0 1"`; cambia la `M` por otra tecla si quieres.
 </details>
 
-## Problemas comunes
+<h2><img src="capturas/readme/t-problemas.svg" width="100%" alt="Problemas comunes"></h2>
 
 | Problema | Solución |
 |---|---|
@@ -93,7 +115,7 @@ No existe esa opción. Escribe en la consola `bind M "toggle mm_big 0 1"`; cambi
 | Los deslizadores de Opciones salen con portales morados | Venías de la v0.26.0-beta o anterior: borra `menu_mp_pip_outline.iwi` de `t6\images` y de `t6\mods\zm_minimapa\images`. |
 | Cambiaron tus controles | Plutonium usa controles aparte con un mod cargado; ajústalos una vez. |
 
-## Consola
+<h2><img src="capturas/readme/t-consola.svg" width="100%" alt="Consola"></h2>
 
 | Comando | Efecto |
 |---|---|
@@ -102,7 +124,7 @@ No existe esa opción. Escribe en la consola `bind M "toggle mm_big 0 1"`; cambi
 | `set mm_big 1` / `0` | Abre / cierra el mapa grande |
 | `set mm_giro 0` / `1` / `2` / `3` | Modo de giro, si el mapa tiembla al mover la cámara |
 
-## Limitaciones
+<h2><img src="capturas/readme/t-mas.svg" width="100%" alt="Limitaciones"></h2>
 
 - En cooperativo sólo lo ve el anfitrión.
 - Reemplaza, mientras estén instaladas, imágenes del juego que no se usan en partida: las 18 de la carpeta `images` de este repositorio. Pueden verse cambiadas en el menú o el lobby.
