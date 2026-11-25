@@ -841,11 +841,11 @@ MM.Attach = function(parent)
 		local e = group(parent, 7, 0)
 		local mat = MM.PerkMat[kind]
 		if mat then
-			image(e, mat, 22 * k, 1, 1, 1, 1)
-			local logo = image(e, MM.PerkLogo[kind], 9 * k, 1, 1, 1, 1)
-			place(logo, 0, 5.3 * k, 4.5 * k, 0)
+			image(e, mat, 27 * k, 1, 1, 1, 1)
+			local logo = image(e, MM.PerkLogo[kind], 11 * k, 1, 1, 1, 1)
+			place(logo, 0, 6.5 * k, 5.5 * k, 0)
 		elseif kind == "W" then
-			image(e, MM.WunderMat, 22 * k, 1, 1, 1, 1)
+			image(e, MM.WunderMat, 27 * k, 1, 1, 1, 1)
 		elseif kind == "P" then
 			image(e, MM.PapMat, 20 * k, 1, 1, 1, 1)
 		else
@@ -1116,7 +1116,7 @@ MM.Attach = function(parent)
 			e = group(lg, 7, 1)
 			image(e, MM.DotMat, 14, 0.4, 0.8, 1, 1)
 		elseif type(rows[i][2]) == "string" then
-			e = fixedIcon(lg, rows[i][2], 1)
+			e = fixedIcon(lg, rows[i][2], rows[i][2] == "P" and 1 or 0.82)
 			e:setAlpha(1)
 		else
 			e = group(lg, 7, 1)
