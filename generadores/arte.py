@@ -69,15 +69,32 @@ def box():
     for x,t in ((290,0),(738,180)):
         q=glyph(x,630,390,t);A.put(grow(q,26),(30,14,0),.95);A.grad(q,(255,240,110),(255,190,10))
     return A
+STONE_INK=(6,14,18);BLUE=(60,190,255)
+def st(A,m,t=(150,182,172),b=(62,90,90),o=26):A.put(grow(m,o),STONE_INK);A.grad(m,t,b);A.bevel(m,20,.55)
+def groove(A,x,y,w,h):
+    for k in (0,.45):
+        A.put(L(lambda d:d.rounded_rectangle((x-w*(1-k),y-h*(1-k),x+w*(1-k),y+h*(1-k)),14,outline=255,width=13)),(34,56,58),.85)
 def pap():
-    # upgrade machine: cabinet with two rollers and a big arrow
-    A=Art();c=(225,80,200);A.put(np.clip(1-np.hypot(XX-512,YY-512)/520,0,1)**1.3*.7,c)
-    m=L(both(rr(110,250,914,930,90),rr(300,90,724,300,60)));A.put(blur(grow(m,46),12),K,.97);A.grad(m,lerp(c,W,.45),lerp(c,K,.5));A.bevel(m,26,.5)
-    w=L(rr(200,350,824,700,50));A.put(grow(w,10),K,.6);A.grad(w,(14,16,30),(44,24,60))
-    for y in (430,620):
-        m=L(rr(220,y-58,804,y+58,56));A.grad(m,(225,232,240),(90,96,110));A.bevel(m,16,.4)
-    m=L(poly((512,325),(712,535),(596,535),(596,725),(428,725),(428,535),(312,535)));A.put(grow(m,26),K,.95);A.grad(m,(255,250,170),(255,170,30));A.bevel(m,14,.35)
-    A.grad(L(ell(512,185,62)),(255,250,190),(255,180,40));A.grad(L(rr(300,775,724,850,36)),(50,20,50),(25,10,28));return A
+    # carved stone machine, glowing rollers, own cartoon skull
+    A=Art();A.put(np.clip(1-np.hypot((XX-512)/520,(YY-520)/500),0,1)**1.1*.75,BLUE)
+    st(A,L(rr(60,850,964,985,24)),(120,150,142),(44,66,68));st(A,L(rr(130,770,894,880,20)))
+    st(A,L(rr(80,400,944,790,50)))
+    w=L(rr(160,410,864,650,24));A.put(grow(w,10),STONE_INK);A.put(w,(8,18,30))
+    for x in (290,512,734):
+        A.put(blur(L(rr(x-80,425,x+80,640,40)),26),BLUE,.9)
+        st(A,L(rr(x-92,420,x+92,645,56)),(62,84,94),(24,38,46),12)
+        A.grad(L(rr(x-44,420,x+44,645,24)),(225,250,255),(20,130,255))
+    for x in (250,512,774):groove(A,x,718,95,42)
+    # roof of carved slabs
+    for x0,x1,y in ((70,260,230),(764,954,230),(230,420,160),(604,794,160)):
+        st(A,L(poly((x0+(25 if x0<512 else 0),y),(x1-(0 if x0<512 else 25),y),(x1,420),(x0-(15 if x0<512 else 0),420))));groove(A,(x0+x1)/2,(y+420)/2+8,55,78)
+    A.put(blur(L(ell(512,270,230)),40),BLUE,.75)
+    m=L(both(ell(512,235,188,172),rr(412,300,612,455,38)));st(A,m,(250,250,235),(165,180,178),30)
+    for x in (438,586):
+        A.put(L(ell(x,255,66,60)),STONE_INK);A.put(blur(L(ell(x,258,50)),10),BLUE);A.grad(L(ell(x,258,38)),(235,255,255),(40,160,255))
+    A.put(L(poly((512,300),(540,352),(484,352))),STONE_INK)
+    for x in (462,512,562):A.put(L(rr(x-8,385,x+8,455,6)),STONE_INK,.9)
+    return A
 def bottle(c,cap1,cap2,sym):
     # long-neck glass soda bottle, crown cap, round label
     A=Art();A.put(np.clip(1-np.hypot((XX-512)/430,(YY-600)/560),0,1)**1.2*.85,c)
