@@ -2,6 +2,16 @@
 
 La numeración sigue las versiones internas de desarrollo: `0.18.0` es la versión 18.
 
+## 0.26.0-beta (2026-11-24)
+
+- La tecla del mapa grande se cambia en Options > Controls > Interact, dentro de la partida
+- M se asigna sola si está libre: ya no hace falta escribir `bind`
+- README: instalación paso a paso y problemas comunes
+
+### Conocido
+
+- Los deslizadores de Opciones salen con dibujos de portales
+
 ## 0.25.0 (2026-11-24)
 
 Primera versión estable.

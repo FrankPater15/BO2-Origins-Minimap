@@ -1148,8 +1148,88 @@ if vanillaPerksArea then
 		box:setTopBottom(true, true, 0, 0)
 		box:addElement(perks)
 		safe("attach", MM.Attach, box)
+		safe("key", MM.DefaultKey, controller)
 		return box
 	end
 else
 	diag("PerksArea missing")
 end
+
+-- Key of the full map: row in Options > Controls > Interact (pause menu), M by default.
+-- The engine's own "press a key" row only knows built-in commands, so this is a list of
+-- keys; the ones already used by another action are left out. Saved in the dvar mm_key.
+MM.Keys = { "M", "N", "B", "H", "J", "K", "L", "U", "I", "O", "P", "X", "F6", "F7", "F8" }
+MM.Actions = {
+	"+leanleft", "+leanright", "+lookup", "+lookdown", "+left", "+right", "+mlook", "centerview",
+	"+forward", "+back", "+moveleft", "+moveright", "+gostand", "gocrouch", "goprone", "togglecrouch",
+	"toggleprone", "+movedown", "+prone", "+stance", "+strafe", "+attack", "+speed_throw", "+toggleads_throw",
+	"+melee", "+weapnext_inventory", "weapprev", "weapnext", "+reload", "+sprint", "+breath_sprint",
+	"+holdbreath", "+frag", "+smoke", "+activate", "+actionslot 1", "+actionslot 2", "+actionslot 3",
+	"+actionslot 4", "screenshotjpeg", "chooseclass_hotkey", "+scores", "togglescores", "+talk",
+	"chatmodepublic", "chatmodeteam",
+}
+
+MM.FreeKeys = function(controller)
+	local used = " "
+	for _, action in ipairs(MM.Actions) do
+		used = used .. tostring(Engine.GetKeyBindingLocalizedString(controller, action, CoD.BIND_PLAYER, false, false, false, false, false, false)) .. " "
+	end
+	local free = {}
+	for _, key in ipairs(MM.Keys) do
+		if not string.find(used, " " .. key .. " ", 1, true) then
+			table.insert(free, key)
+		end
+	end
+	return free
+end
+
+MM.SetKey = function(controller, key)
+	local old = UIExpression.DvarString(nil, "mm_key")
+	if old ~= nil and old ~= "" and old ~= key then
+		Engine.ExecNow(controller, "bind " .. old .. " \"\"") -- unbind has no effect here
+	end
+	Engine.ExecNow(controller, "bind " .. key .. " \"toggle mm_big 0 1\"")
+	Engine.ExecNow(controller, "seta mm_key " .. key)
+end
+
+MM.KeyChosen = function(params, userRequested)
+	if userRequested then
+		MM.SetKey(params.controller, params.value)
+	end
+end
+
+MM.AddKeyRow = function(tab, controller)
+	local list = tab.buttonList
+	list:addSpacer(CoD.CoD9Button.Height / 2)
+	local row = list:addDvarLeftRightSelector(controller, "MAPA GRANDE (MINIMAPA)", "mm_key")
+	for _, key in ipairs(MM.FreeKeys(controller)) do
+		CoD.LeftRightSelector.AddChoice(row, key, MM.KeyChosen, { parentSelectorButton = row, value = key, controller = controller })
+	end
+end
+
+-- Every match, so it also comes back after "Reset to Default"
+MM.DefaultKey = function(controller)
+	local key = UIExpression.DvarString(nil, "mm_key")
+	local free = MM.FreeKeys(controller)
+	if key == nil or key == "" then
+		key = free[1]
+	end
+	for _, k in ipairs(free) do
+		if k == key then
+			MM.SetKey(controller, key)
+		end
+	end
+end
+
+MM.HookControls = function()
+	require("T6.Menus.OptionsControls")
+	local vanilla = CoD.OptionsControls.CreateInteractTab
+	CoD.OptionsControls.CreateInteractTab = function(tab, controller)
+		local container = vanilla(tab, controller)
+		if UIExpression.DvarString(nil, "mapname") == "zm_tomb" then
+			safe("keyrow", MM.AddKeyRow, tab, controller)
+		end
+		return container
+	end
+end
+safe("controls", MM.HookControls)
