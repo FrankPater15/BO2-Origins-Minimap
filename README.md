@@ -50,7 +50,7 @@ Van **las dos en `t6`**; no metas `images` dentro de `mods`. Debe quedar así:
 Plutonium\storage	6
 ├── images
 │   ├── hud_zombierank_5.iwi
-│   └── ... (19 archivos del mod)
+│   └── ... (18 archivos del mod)
 └── mods
     └── zm_minimapa
         ├── mod.iwd
@@ -90,6 +90,7 @@ No existe esa opción. Escribe en la consola `bind M "toggle mm_big 0 1"`; cambi
 | Mapa en blanco o iconos raros | Falta copiar `images` en `t6\images`. |
 | M no abre el mapa | Revisa la tecla en Controles. Si M ya era de otra acción, el mod eligió la siguiente libre. |
 | El mapa tiembla al girar | Prueba `set mm_giro 0`, `1`, `2` o `3`. |
+| Los deslizadores de Opciones salen con portales morados | Venías de la v0.26.0-beta o anterior: borra `menu_mp_pip_outline.iwi` de `t6\images` y de `t6\mods\zm_minimapa\images`. |
 | Cambiaron tus controles | Plutonium usa controles aparte con un mod cargado; ajústalos una vez. |
 
 ## Consola
@@ -104,7 +105,7 @@ No existe esa opción. Escribe en la consola `bind M "toggle mm_big 0 1"`; cambi
 ## Limitaciones
 
 - En cooperativo sólo lo ve el anfitrión.
-- Reemplaza, mientras estén instaladas, imágenes del juego que no se usan en partida: las 19 de la carpeta `images` de este repositorio. Pueden verse cambiadas en el menú o el lobby: por ejemplo, los deslizadores de Opciones salen con dibujos de portales.
+- Reemplaza, mientras estén instaladas, imágenes del juego que no se usan en partida: las 18 de la carpeta `images` de este repositorio. Pueden verse cambiadas en el menú o el lobby.
 - Plutonium usa controles y algunas estadísticas aparte con un mod cargado.
 
 ## Desinstalar

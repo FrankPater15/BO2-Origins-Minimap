@@ -9,7 +9,6 @@ init()
 	precacheshader( "menu_lobby_icon_twitter" );
 	precacheshader( "zombies_rank_5" );
 	precacheshader( "menu_mp_pip_blue" );
-	precacheshader( "menu_mp_pip_outline" );
 	precacheshader( "menu_mp_lobby_icon_film" );
 	precacheshader( "menu_mp_lobby_views_bg" );
 	precacheshader( "menu_mp_fileshare_custom" );

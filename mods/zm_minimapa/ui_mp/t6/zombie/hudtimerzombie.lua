@@ -1059,6 +1059,22 @@ MM.Attach = function(parent)
 			image(e, mat, size, r or 1, g or 1, b or 1, 1)
 		end
 	end
+	-- cut out of the Crazy Place picture (thin strips that make a circle), so it needs no image of its own
+	local function portal(e)
+		local k, radius, strips = 20 / 254, 9.3, 24
+		local h = 2 * radius / strips
+		for n = 1, strips do
+			local mid = -radius + (n - 0.5) * h
+			local w = math.sqrt(radius * radius - mid * mid)
+			local cut = LUI.UIElement.new()
+			cut:setLeftRight(false, false, -w, w)
+			cut:setTopBottom(false, false, mid - h / 2, mid + h / 2)
+			cut:setUseStencil(true)
+			e:addElement(cut)
+			local img = image(cut, MM.CrazyMaterial, MM.CrazyWorld * k, 1, 1, 1, 1)
+			place(img, (MM.CrazyX - 9552) * k, (-6905 - MM.CrazyY) * k - mid, MM.CrazyWorld * k / 2, 0)
+		end
+	end
 	local rows = {
 		{ "Tu", pic(MM.ArrowMat, 18) },
 		{ "Otro jugador (un color cada uno)", pic(MM.ArrowMat, 17, 1, 0.85, 0.2) },
@@ -1081,7 +1097,7 @@ MM.Attach = function(parent)
 		{ "Stamin-Up", "M" },
 		{ "Mule Kick (en la cripta)", "K" },
 		{ "Baston (cripta y Crazy Place)", pic("menu_mp_pip_blue", 20) },
-		{ "Portal (Crazy Place)", pic("menu_mp_pip_outline", 20) },
+		{ "Portal (Crazy Place)", portal },
 	}
 	for i = 1, #rows do
 		local y = -279 + (i - 1) * 21
